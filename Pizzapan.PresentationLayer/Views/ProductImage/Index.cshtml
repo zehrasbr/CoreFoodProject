@@ -1,0 +1,14 @@
+﻿@model ImageFileViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Resim Ekleme Sayfası </h1>
+
+<form method="post" enctype="multipart/form-data">
+    <label>Görseli Seçiniz</label>
+    <input type="file" class="form-control border" asp-for="Image" />
+    <br>
+    <button class="btn btn-primary">Görsel Ekle</button>
+</form>

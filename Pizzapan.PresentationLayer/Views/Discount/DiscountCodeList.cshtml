@@ -1,0 +1,37 @@
+﻿@model List<Discount>
+@{
+    ViewData["Title"] = "DiscountCodeList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<h1>Kod Listesi</h1>
+
+<table>
+    <tr>
+        <th>İndirim Kodu</th>
+        <th>Kullanım</th>
+        <th>Son Kullanma</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        if (item.EndingDate < DateTime.Now)
+        {
+            <tr style="background-color:orangered">
+                <td>@item.DiscountCode</td>
+                <td>@item.DiscountCount</td>
+                <td>@(((DateTime)item.EndingDate).ToString("dd-MM-yyyy"))</td>
+            </tr>
+        }
+        else
+        {
+            <tr style="background-color:lightgreen">
+                <td>@item.DiscountCode</td>
+                <td>@item.DiscountCount</td>
+                <td>@(((DateTime)item.EndingDate).ToString("dd-MM-yyyy"))</td>
+            </tr>
+        }
+    }
+
+</table>
+ 
